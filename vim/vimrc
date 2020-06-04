@@ -1,1 +1,56 @@
-/Users/Momo/dotfiles/vim/vimrc
+" Maintainer: JG
+" Date: June 4 
+" License: (c) VRA, GPL-2 or newer
+" --------------------------------------------------
+" dotfiles/vim/vimrc
+
+set runtimepath+=~/.vim_runtime
+
+source ~/.vim_runtime/vimrcs/basic.vim
+source ~/.vim_runtime/vimrcs/filetypes.vim
+source ~/.vim_runtime/vimrcs/plugins_config.vim
+source ~/.vim_runtime/vimrcs/extended.vim
+
+try
+source ~/.vim_runtime/my_configs.vim
+catch
+endtry
+
+
+set clipboard=unnamed
+
+" save on escape
+"inoremap <Esc> <Esc>:w<CR>
+
+" sets up syntax highlighting
+syntax enable
+
+" sets line numbers
+set relativenumber number
+highlight LineNr ctermfg=grey
+
+" sets tabs to 4 spaces
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+
+" remove trailing space
+set listchars=tab:▸\ ,eol:¬,nbsp:·,trail:·
+
+" sets parenthetical highlighting to just bold
+hi MatchParen cterm=bold ctermbg=Black ctermfg=none
+
+" sets noexpandtab for Makefiles
+if &ft == 'make'
+    setlocal noexpandtab
+    setlocal tabstop=4
+endif
+
+" color columns beyond 80 characters
+set colorcolumn=80
+highlight ColorColumn ctermbg=red guibg=red
+
+" English spellcheck
+set spelllang=en
+set spell
+
+
+
