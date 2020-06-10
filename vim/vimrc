@@ -66,7 +66,21 @@ call plug#begin('~/.vim/plugged')
 " Declare the list of plugins.
 Plug 'tpope/vim-sensible'
 Plug 'junegunn/seoul256.vim'
+Plug 'dense-analysis/ale'             "providing linting (syntax checking and semantic errors)
+Plug 'vim-airline/vim-airline'        "Lean & mean status/tabline for vim that's light as air
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ncm2/ncm2'                      "slim, fast and hackable completion framework
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-github'
+Plug 'ncm2/ncm2-syntax'
+Plug 'ncm2/ncm2-jedi'
+Plug 'ncm2/ncm2-vim'
+Plug 'ervandew/supertab'
+Plug 'luochen1990/rainbow'
+Plug 'godlygeek/tabular'
+Plug 'jalvesaq/Nvim-R'
 
-" List ends here. Plugins become visible to Vim after this call.
+"List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
