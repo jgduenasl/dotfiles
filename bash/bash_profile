@@ -56,18 +56,21 @@ PS1="\[\e[32m\]\w\n@$USER: \[\e[0;00m\]"
 export PS1
 
 # make vim the default editor
-export EDITOR='vim';
+export EDITOR='vim'
 export CEVGIT="/Users/Momo/gitlab"
 export PERSONALGIT="/Users/Momo/github"
 
 # colors
 export TERM=xterm-256color
 
+# gnu core utils
+export PATH+=":$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin"
+export PATH+=":/usr/local/opt/coreutils/libexec/gnubin"
+
 # export anaconda
 export PATH+=":/Users/Momo/anaconda3/bin/"
 export PATH+=":/usr/local/opt/tcl-tk/bin/"
 export GNUTERM='aqua'
-
 
 # set PATH so it includes user's private ~/.local/bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
@@ -104,7 +107,7 @@ fi
 #export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
 ##
- Your previous /Users/Momo/.bash_profile file was backed up as /Users/Momo/.bash_profile.macports-saved_2015-11-05_at_23:40:13
+# Your previous /Users/Momo/.bash_profile file was backed up as /Users/Momo/.bash_profile.macports-saved_2015-11-05_at_23:40:13
 ##
 # MacPorts Installer addition on 2015-11-05_at_23:40:13: adding an appropriate PATH variable for use with MacPorts.
 #export PATH+="/opt/local/bin"
