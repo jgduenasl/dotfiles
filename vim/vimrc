@@ -1,11 +1,9 @@
 " Maintainer: JG
 " Date: June 4 
-" License: (c) VRA, GPL-2 or newer
+" License: GPL-2 or newer
 " --------------------------------------------------
 " dotfiles/vim/vimrc
 
-" sets up syntax highlighting
-syntax enable
 
 set runtimepath+=~/.vim_runtime
 
@@ -15,48 +13,60 @@ source ~/.vim_runtime/vimrcs/plugins_config.vim
 source ~/.vim_runtime/vimrcs/extended.vim
 
 try
-source ~/.vim_runtime/my_configs.vim
+    source ~/.vim_runtime/my_configs.vim
 catch
 endtry
 
 "=========================================================
 "=========================================================
-
+"basic options{{{
+set cursorline
+set termguicolors
+syntax enable                                                " sets up syntax highlighting
 set clipboard=unnamed                                        " yank and paste with the system clipboard
-set ignorecase                                               " case-insensitive search
-set relativenumber number                                    " sets line numbers
-highlight LineNr ctermfg=grey
+set laststatus=2                                             " always show statusline
+set spelllang=en                                             " English spellcheck
+set spell
+set ruler                                                    " show where you are
+set scrolloff=3                                              " show context above/below cursorline
+set showcmd
+
+"tabs
 set tabstop=4                                                " sets tabs to 4 spaces
 set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
 set expandtab 
 set shiftwidth=4 smarttab                                    " normal mode indentation commands use 2 spaces
-set laststatus=2                                             " always show statusline
-set list                                                     " show trailing whitespace
-set listchars=tab:▸\ ,eol:¬,nbsp:·,trail:·                   " remove trailing space
-set spelllang=en                                             " English spellcheck
-set spell
-set colorcolumn=80                                           " color columns beyond 80 characters
-highlight ColorColumn ctermbg=red guibg=red
+set smartindent
+
+"search options
 set incsearch                                                " search as you type
-set ruler                                                    " show where you are
-set scrolloff=3                                              " show context above/below cursorline
-set showcmd
 set smartcase                                                " case-sensitive search if any caps
+set ignorecase                                               " case-insensitive search
+
+"completion options
 set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
-
-" save on escape
-"inoremap <Esc> <Esc>:w<CR>
-
-" sets parenthetical highlighting to just bold
-hi MatchParen cterm=bold ctermbg=Black ctermfg=none          
 
 " sets noexpandtab for Makefiles
 if &ft == 'make'
     setlocal noexpandtab
     setlocal tabstop=4
 endif
+"}}}
+
+"layout{{{
+set relativenumber number                                    " sets line numbers
+highlight LineNr ctermfg=grey
+set colorcolumn=80                                           " color columns beyond 80 characters
+highlight ColorColumn ctermbg=red guibg=red
+set list                                                     " show trailing whitespace
+set listchars=tab:▸\ ,eol:¬,nbsp:·,trail:·                   " remove trailing space
+
+" sets parenthetical highlighting to just bold
+hi MatchParen cterm=bold ctermbg=Black ctermfg=none          
+"}}}
+
 
 "=========================================================
 "=========================================================
@@ -81,12 +91,13 @@ Plug 'luochen1990/rainbow'
 Plug 'godlygeek/tabular'
 Plug 'jalvesaq/Nvim-R'                "Vim's support to edit R code
 Plug 'jalvesaq/vimcmdline'            "Send code to command line interpreter
+Plug 'justinmk/vim-sneak'             "Powerful and minimal motion plugin
 
 " Track the engine.
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
+"Plugin 'honza/vim-snippets'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -99,3 +110,43 @@ let g:UltiSnipsEditSplit="vertical"
 "List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
+"==================================================================
+"=================================================================
+" mappings
+"" the big picture here is:
+"" * remapping std vim keys should be enhancements, not overrides
+"" * leader keys are in groups
+"" * try to stay off remapping C- keys. There's already lots there.
+"" * A-x keys move among windows and do not-vimmy stuff
+
+let g:mapleader='\'
+
+"go up and down prompt
+nnoremap <space> <C-d>
+nnoremap <C-space> <C-u> 
+
+"" tweaks adding functionality to existing keys {{{{
+nnoremap D Da
+" Keep the cursor in place while joining lines
+nnoremap J mzJ`z
+
+" direct editing
+nnoremap <leader>evim :e ~/github/dotfiles/vim/vimrc<cr>
+nnoremap <leader>ebash :e ~/github/dotfiles/bash/bash_profile<cr>
+nnoremap <leader>er :e ~/github/tutorials/Readme.md<cr>
+
+"save on escape
+"inoremap <Esc> <Esc>:w<CR>
+
+"" buffer navigation 
+nnoremap <leader>1 :b1<CR>
+nnoremap <leader>2 :b2<CR>
+nnoremap <leader>3 :b3<CR>
+nnoremap <leader>4 :b4<CR>
+nnoremap <leader>5 :b5<CR>
+nnoremap <leader>6 :b6<CR>
+nnoremap <leader>7 :b7<CR>
+nnoremap <leader>8 :b8<CR>
+nnoremap <leader>9 :b9<CR>
+nnoremap <leader>0 :b10<CR>
+"done
