@@ -19,35 +19,32 @@ alias gith="cd ~/github"
 # git
 alias gs="git status"
 alias gc="git commit -m"
+# makes gA add
+alias gA="git add -A && git status"
 
 # listing 
-alias lh="ls -lh"
+alias lh="ls -lh --color=always"
 # List all files colorized in long format
 #alias ll="ls -ltrF ${colorflag}"
 # List all files colorized in long format, including dot files
-alias la="ls -laF ${colorflag}"
+alias la="ls -laF --color=always"
 # List only directories
 alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
-
-
 #alias ll="ls -alhG --color=always"
 alias ll="ls -lFG --color=always"
 #-------------- external functions--------------------
+# makes 'cs' cd and ll
+function cs () {
+    cd "$1" && ll
+    }
 
 # Creating task #
-# $1 is project path
-# $2 is task name
+# $1 is task name
 function task(){
-    if [! -d $1];
-    then
-        echo 'project path not valid'
-    else
-        cd $1
-        mkdir $2
-        cd $2
-        mkdir input src output
-        tree -C
-    fi
+    mkdir "$1" && cd "$1"
+    mkdir input src output
+    cd ..
+    tree -C
 }
 
 #------------------ env vars ----------------------------
@@ -63,11 +60,17 @@ export PERSONALGIT="/Users/Momo/github"
 # colors
 export TERM=xterm-256color
 
-# gnu core utils
-export PATH+=":$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin"
-export PATH+=":/usr/local/opt/coreutils/libexec/gnubin"
+# gnu core utils (prepend)
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 
-# export anaconda
+# powerline-status
+export PATH=$PATH:$HOME/Library/Python/2.7/bin
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. /Users/Momo/Library/Python/3.7/lib/python/site-packages/powerline/bindings/bash/powerline.sh
+
+# export anaconda (append)
 export PATH+=":/Users/Momo/anaconda3/bin/"
 export PATH+=":/usr/local/opt/tcl-tk/bin/"
 export GNUTERM='aqua'
@@ -76,6 +79,11 @@ export GNUTERM='aqua'
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+export PATH+=":/Users/Momo/github/hrdag/resource-utils/bin/"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 #-----------------------
 
 ##export PATH+="/usr/local/opt/python/libexec/bin/"
