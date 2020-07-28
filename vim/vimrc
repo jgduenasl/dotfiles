@@ -171,9 +171,10 @@ let g:mapleader='\'
 
 "go up and down prompt
 nnoremap <space> <C-d>
-nnoremap <C-space> <C-u> 
+"revisar
+nnoremap <C-space> <C-u>
 
-"" tweaks adding functionality to existing keys 
+"" tweaks adding functionality to existing keys
 nnoremap D Da
 " Keep the cursor in place while joining lines
 nnoremap J mzJ`z
@@ -197,4 +198,4 @@ nnoremap <leader>7 :b7<CR>
 nnoremap <leader>8 :b8<CR>
 nnoremap <leader>9 :b9<CR>
 nnoremap <leader>0 :b10<CR>
-"done
+

@@ -63,13 +63,6 @@ export TERM=xterm-256color
 # gnu core utils (prepend)
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 
-# powerline-status
-export PATH=$PATH:$HOME/Library/Python/2.7/bin
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-. /Users/Momo/Library/Python/3.7/lib/python/site-packages/powerline/bindings/bash/powerline.sh
-
 # export anaconda (append)
 export PATH+=":/Users/Momo/anaconda3/bin/"
 export PATH+=":/usr/local/opt/tcl-tk/bin/"
@@ -80,10 +73,20 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# powerline-status
+export PATH=$PATH:$HOME/Library/Python/3.7/bin
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. /Users/Momo/Library/Python/3.7/lib/python/site-packages/powerline/bindings/bash/powerline.sh
+
 export PATH+=":/Users/Momo/github/hrdag/resource-utils/bin/"
 
+# fzf plugin
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# fasd plugin
+eval "$(fasd --init auto)"
 #-----------------------
 
 ##export PATH+="/usr/local/opt/python/libexec/bin/"
