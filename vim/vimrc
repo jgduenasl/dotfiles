@@ -21,7 +21,7 @@ endif
 "=========================================================
 "=========================================================
 "basic options{{{
-set cursorline
+set cursorline cterm=NONE ctermbg=darkred ctermfg=black guibg=darkred guifg=black
 set termguicolors
 syntax enable                                                " sets up syntax highlighting
 set background=dark
@@ -175,6 +175,8 @@ nnoremap <space> <C-d>
 "revisar
 nnoremap <C-space> <C-u>
 
+""hightligth on and off
+nnoremap <leader>c :set cursorline!<CR>
 "" tweaks adding functionality to existing keys
 nnoremap D Da
 " Keep the cursor in place while joining lines
