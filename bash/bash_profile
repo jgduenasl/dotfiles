@@ -5,47 +5,13 @@
 # ============================
 # ~/github/dotfiles/bash/bash_profile
 
-#------------------ aliases -------------------------
-# navigation
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .4="cd ../../../../"
-alias .5="cd ../../../../../"
-alias dl="cd ~/Downloads"
-alias gitl="cd ~/gitlab"
-alias gith="cd ~/github"
-
-# git
-alias gs="git status"
-alias gc="git commit -m"
-# makes gA add
-alias gA="git add -A && git status"
-
-# listing 
-alias lh="ls -lh --color=always"
-# List all files colorized in long format
-#alias ll="ls -ltrF ${colorflag}"
-# List all files colorized in long format, including dot files
-alias la="ls -laF --color=always"
-# List only directories
-alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
-#alias ll="ls -alhG --color=always"
-alias ll="ls -lFG --color=always"
-#-------------- external functions--------------------
-# makes 'cs' cd and ll
-function cs () {
-    cd "$1" && ll
-    }
-
-# Creating task #
-# $1 is task name
-function task(){
-    mkdir "$1" && cd "$1"
-    mkdir input src output
-    cd ..
-    tree -C
-}
+#------------------ detecting OS -------------------------
+case "$OSTYPE" in
+  linux*)   export OS="linux" ;;
+  darwin*)  export OS="macos";;
+  win*)     export OS="windows";; 
+  *)        echo "unknown: $OSTYPE" ;;
+esac
 
 #------------------ env vars ----------------------------
 export CLICOLORS=1
@@ -61,7 +27,9 @@ export PERSONALGIT="/Users/Momo/github"
 export TERM=xterm-256color
 
 # gnu core utils (prepend)
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+if [ $OS == 'macos' ]; then
+    export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+fi
 
 # export anaconda (append)
 export PATH+=":/Users/Momo/anaconda3/bin/"
@@ -74,19 +42,73 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # powerline-status
-export PATH=$PATH:$HOME/Library/Python/3.7/bin
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-. /Users/Momo/Library/Python/3.7/lib/python/site-packages/powerline/bindings/bash/powerline.sh
+if [ $OS == 'macos' ]; then
+    export PATH=$PATH:$HOME/Library/Python/3.7/bin
+    powerline-daemon -q
+    POWERLINE_BASH_CONTINUATION=1
+    POWERLINE_BASH_SELECT=1
+    . /Users/Momo/Library/Python/3.7/lib/python/site-packages/powerline/bindings/bash/powerline.sh
+fi
 
+# HRDAG resource utils
 export PATH+=":/Users/Momo/github/hrdag/resource-utils/bin/"
 
 # fzf plugin
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+#------------------ aliases -------------------------
+# navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .4="cd ../../../../"
+alias .5="cd ../../../../../"
+alias dl="cd ~/Downloads"
+alias gitl="cd ~/gitlab"
+alias gith="cd ~/github"
+alias reload="source ~/.bash_profile"
+# git
+alias gs="git status"
+alias gc="git commit -m"
+# makes gA add
+alias gA="git add -A && git status"
+alias gl="git log --pretty=format:'%C(yellow)%h|%Cred%ci|%Cblue%cN| %Creset%s %Cgreen%d %Creset' | head -n20"
+alias gpom="git push origin master"
+
+# listing 
+alias lh="ls -lh --color=always"
+# List all files colorized in long format
+#alias ll="ls -ltrF ${colorflag}"
+# List all files colorized in long format, including dot files
+alias la="ls -laF --color=always"
+# List only directories
+alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
+#alias ll="ls -alhG --color=always"
+alias ll="ls -lFG --color=always"
+
+# fasd and fzf command
+alias j='xdir=$(fasd -dl|fzf --tac) && cd "$xdir"'
 # fasd plugin
 eval "$(fasd --init auto)"
+
+#texmaker editor
+alias texmaker="open -a texmaker"
+
+#-------------- external functions--------------------
+# makes 'cs' cd and ll
+function cs () {
+    cd "$1" && ll
+    }
+
+# Creating task #
+# $1 is task name
+function task(){
+    mkdir "$1" && cd "$1"
+    mkdir input src output
+    cd ..
+    tree -C
+}
+
 #-----------------------
 
 ##export PATH+="/usr/local/opt/python/libexec/bin/"
@@ -96,7 +118,6 @@ eval "$(fasd --init auto)"
 #source /usr/local/etc/bash_completion.d/git-completion.bash
 ##source /usr/local/etc/profile.d/bash-completion.sh
 
-## >>> conda initialize >>>
 ## !! Contents within this block are managed by 'conda init' !!
 #__conda_setup="$('/Users/Momo/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 #if [ $? -eq 0 ]; then
@@ -111,16 +132,4 @@ eval "$(fasd --init auto)"
 #unset __conda_setup
 
 
-## <<< conda initialize <<<
 
-
-# MacPorts Installer addition on 2015-07-20_at_13:46:46: adding an appropriate PATH variable for use with MacPorts.
-#export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
-##
-# Your previous /Users/Momo/.bash_profile file was backed up as /Users/Momo/.bash_profile.macports-saved_2015-11-05_at_23:40:13
-##
-# MacPorts Installer addition on 2015-11-05_at_23:40:13: adding an appropriate PATH variable for use with MacPorts.
-#export PATH+="/opt/local/bin"
-#export PATH+="/opt/local/sbin"
-# Finished adapting your PATH environment variable for use with MacPorts.
