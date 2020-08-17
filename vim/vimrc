@@ -4,18 +4,19 @@
 " --------------------------------------------------
 " dotfiles/vim/vimrc
 
+if $OS == 'macos'
+    set runtimepath+=~/.vim_runtime
 
-set runtimepath+=~/.vim_runtime
+    source ~/.vim_runtime/vimrcs/basic.vim
+    source ~/.vim_runtime/vimrcs/filetypes.vim
+    source ~/.vim_runtime/vimrcs/plugins_config.vim
+    source ~/.vim_runtime/vimrcs/extended.vim
 
-source ~/.vim_runtime/vimrcs/basic.vim
-source ~/.vim_runtime/vimrcs/filetypes.vim
-source ~/.vim_runtime/vimrcs/plugins_config.vim
-source ~/.vim_runtime/vimrcs/extended.vim
-
-try
-    source ~/.vim_runtime/my_configs.vim
-catch
-endtry
+    try
+        source ~/.vim_runtime/my_configs.vim
+    catch
+    endtry
+endif
 
 "=========================================================
 "=========================================================
@@ -178,8 +179,10 @@ nnoremap <C-space> <C-u>
 nnoremap D Da
 " Keep the cursor in place while joining lines
 nnoremap J mzJ`z
+"split a line in two, inverse of J
+nnoremap <C-J> a<CR><Esc>k$
 
-" direct editing
+"" direct editing
 nnoremap <leader>evim :e ~/github/dotfiles/vim/vimrc<cr>
 nnoremap <leader>ebash :e ~/github/dotfiles/bash/bash_profile<cr>
 nnoremap <leader>etut :e ~/github/tutorials/Readme.md<cr>
