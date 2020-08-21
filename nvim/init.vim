@@ -1,4 +1,3 @@
-
 " Maintainer: JG
 " Date: June 4 
 " License: GPL-2 or newer
@@ -12,7 +11,7 @@ set runtimepath+=$HOME/dotfiles/vim-common
 "=========================================================
 "=========================================================
 " Plugins will be downloaded under the specified directory.
-call plug#begin(expand('~/.vim/plugged'))
+call plug#begin(expand('~/.config/nvim/plugged'))
 " screen and window management
 "Plug 'mhinz/vim-startify'             " cute!
 "Plug 'qpkorr/vim-bufkill'             " :BD is very useful
@@ -88,4 +87,4 @@ source $HOME/github/dotfiles/vim-common/remaps.vim
 source $HOME/github/dotfiles/vim-common/set.vim   " for the lightline config
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
+colorscheme OceanicNext

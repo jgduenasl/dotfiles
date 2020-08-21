@@ -19,7 +19,7 @@ PS1="\[\e[32m\]\w\n@$USER: \[\e[0;00m\]"
 export PS1
 
 # make vim the default editor
-export EDITOR='vim'
+export EDITOR='nvim'
 export CEVGIT="/Users/Momo/gitlab"
 export PERSONALGIT="/Users/Momo/github"
 
