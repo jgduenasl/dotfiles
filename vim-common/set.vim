@@ -9,7 +9,6 @@
 "=========================================================
 "basic options{{{
 "set cursorline 
-set termguicolors
 syntax enable                                                " sets up syntax highlighting
 set background=dark
 set clipboard=unnamed                                        " yank and paste with the system clipboard
@@ -56,3 +55,9 @@ set listchars=tab:▸\ ,eol:¬,nbsp:·,trail:·                   " remove trail
 hi MatchParen cterm=bold ctermbg=Black ctermfg=none          
 "}}}
 
+
+"" file types
+set fileformats=unix,dos,mac
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8
