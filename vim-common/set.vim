@@ -55,6 +55,12 @@ set listchars=tab:▸\ ,eol:¬,nbsp:·,trail:·                   " remove trail
 hi MatchParen cterm=bold ctermbg=Black ctermfg=none          
 "}}}
 
+" light-line config
+set laststatus=2
+let g:lightline = {
+\ 'colorscheme': 'material'
+      \ }
+
 
 "" file types
 set fileformats=unix,dos,mac

@@ -17,11 +17,11 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "Plug 'qpkorr/vim-bufkill'             " :BD is very useful
 
 "editing and formatting
-"Plug 'tpope/vim-surround'             " adds surround action to create cmts
 Plug 'tpope/vim-sensible'
-"Plug 'tpope/vim-unimpaired'           " many additional movements with [ and ]
 Plug 'tomtom/tcomment_vim'
 Plug 'ntpeters/vim-better-whitespace' " to remove trailing whitespace on save
+"Plug 'tpope/vim-surround'             " adds surround action to create cmts
+"Plug 'tpope/vim-unimpaired'           " many additional movements with [ and ]
 "Plug 'machakann/vim-highlightedyank'  " blink
 "Plug 'haya14busa/incsearch.vim'
 

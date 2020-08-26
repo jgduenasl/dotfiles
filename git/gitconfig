@@ -5,7 +5,7 @@
 
 [core]
 	excludesfile = /Users/Momo/.gitignore
-	editor = vim
+	editor = nvim
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true

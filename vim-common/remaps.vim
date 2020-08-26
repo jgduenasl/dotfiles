@@ -34,8 +34,8 @@ nnoremap <C-J> a<CR><Esc>k$
 
 "" direct editing
 nnoremap <leader>evim :e ~/github/dotfiles/vim/vimrc<cr>
-nnoremap <leader>einit:e ~/github/dotfiles/nvim/init.vim<cr>
-nnoremap <leader>eset :e ~/github/dotfiles/vim-commom/set.vim<cr>
+nnoremap <leader>einit :e ~/github/dotfiles/nvim/init.vim<cr>
+nnoremap <leader>eset :e ~/github/dotfiles/vim-common/set.vim<cr>
 nnoremap <leader>emaps :e ~/github/dotfiles/vim-common/remaps.vim<cr>
 nnoremap <leader>ebash :e ~/github/dotfiles/bash/bash_profile<cr>
 nnoremap <leader>etut :e ~/github/tutorials/Readme.md<cr>
