@@ -41,4 +41,6 @@
     changed = green
     untracked = cyan
 [push]
-	default = upstream
+    default = upstream
+[pull]
+    rebase = merges
