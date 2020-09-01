@@ -1,17 +1,10 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 #:set ft=shell
 # Author(s): JG
 # Maintainer(s): JG
 # ============================
 # ~/github/dotfiles/bash/bash_profile
 
-#------------------ detecting OS -------------------------
-case "$OSTYPE" in
-  linux*)   export OS="linux" ;;
-  darwin*)  export OS="macos";;
-  win*)     export OS="windows";; 
-  *)        echo "unknown: $OSTYPE" ;;
-esac
 
 #------------------ env vars ----------------------------
 export CLICOLORS=1
@@ -27,7 +20,7 @@ export PERSONALGIT="/Users/Momo/github"
 export TERM=xterm-256color
 
 # gnu core utils (prepend)
-if [ $OS == 'macos' ]; then
+if [ $OSTYPE == 'darwin19.5.0' ]; then
     export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 fi
 
@@ -42,7 +35,7 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # powerline-status
-if [ $OS == 'macos' ]; then
+if [ $OSTYPE == 'darwin19.5.0' ]; then
     export PATH=$PATH:$HOME/Library/Python/3.7/bin
     powerline-daemon -q
     POWERLINE_BASH_CONTINUATION=1
