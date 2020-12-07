@@ -49,6 +49,7 @@ export PATH+=":/Users/Momo/github/hrdag/resource-utils/bin/"
 # fzf plugin
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+
 #------------------ aliases -------------------------
 # navigation
 alias ..="cd .."
@@ -86,6 +87,9 @@ eval "$(fasd --init auto)"
 
 #texmaker editor
 alias texmaker="open -a texmaker"
+
+#inspecting R tools
+alias inspect-excel="Rscript ~/github/inspection-tools/inspect-excel.R"
 
 #-------------- external functions--------------------
 # makes 'cs' cd and ll
