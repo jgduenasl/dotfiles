@@ -79,7 +79,7 @@ alias gs="git status"
 alias gc="git commit -m"
 # makes gA add
 alias gA="git add -A && git status"
-alias gl="git log --pretty=format:'%C(yellow)%h|%Cred%ci|%Cblue%cN| %Creset%s %Cgreen%d %Creset' | head -n20"
+alias gl="git log --graph --oneline --pretty=format:'%C(yellow)%h|%Cred%ci|%Cblue%cN| %Creset%s %Cgreen%d %Creset' | head -n20"
 alias gpom="git push origin master"
 alias gpgp="git pull; git push"
 
