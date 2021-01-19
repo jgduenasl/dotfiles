@@ -69,7 +69,6 @@ vignettes/*.pdf
 # pkgdown site
 docs/
 
-.DS_Store
 
 Rplots.pdf
 # done.
