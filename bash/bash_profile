@@ -7,9 +7,11 @@
 
 
 #------------------ env vars ----------------------------
+export LC_ALL='en_US.UTF-8'
 export CLICOLORS=1
 PS1="\[\e[32m\]\w\n@$USER: \[\e[0;00m\]"
 export PS1
+export TMPDIR=/home/tmp
 
 # make vim the default editor
 export EDITOR='nvim'
@@ -60,7 +62,7 @@ alias .5="cd ../../../../../"
 alias dl="cd ~/Downloads"
 alias gitl="cd ~/gitlab"
 alias gith="cd ~/github"
-alias reload="source ~/.bash_profile"
+alias reload="source ~/.bashrc"
 # git
 alias gs="git status"
 alias gc="git commit -m"
