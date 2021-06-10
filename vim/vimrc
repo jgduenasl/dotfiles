@@ -8,6 +8,7 @@
 set nocompatible
 let g:vim_bootstrap_editor = 'nvim'	
 set runtimepath+=$HOME/dotfiles/vim-common
+let g:python3_host_prog = '/opt/micromamba/bin/python3'
 
 "=========================================================
 "=========================================================
