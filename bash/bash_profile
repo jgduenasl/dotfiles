@@ -71,7 +71,7 @@ alias gc="git commit -m"
 alias gA="git add -A && git status"
 alias gl="git log --pretty=format:'%C(yellow)%h|%Cred%ci|%Cblue%cN| %Creset%s %Cgreen%d %Creset' | head -n20"
 alias gpom="git push origin master"
-alias gpgp="git pull: git push"
+alias gpgp="git pull; git push"
 
 # listing 
 alias l='ls --color -lhF --group-directories-first'
@@ -97,23 +97,20 @@ alias texmaker="open -a texmaker"
 alias inspect-excel="Rscript ~/github/inspection-tools/inspect-excel.R"
 
 # application
-alias rstudio open /Applications/RStudio.app
+#alias rstudio open /Applications/RStudio.app
 
 # spelling while typing is hard
-alias plan plat
-alias opne open
-alias docus focus
-alias alais alias
-alias aalias alias
-alias gcmop gcomp
-alias mdkdir mkdir
-alias mkddir mkdir
-alias kdir mkdir
-alias oepn open
-alias fidn find
-alias gttp http
-alias moer more
-alias mroe more
+# alias opne open
+# alias alais alias
+# alias aalias alias
+# alias mdkdir mkdir
+# alias mkddir mkdir
+# alias kdir mkdir
+# alias oepn open
+# alias fidn find
+# alias gttp http
+# alias moer more
+# alias mroe more
 
 #-------------- external functions--------------------
 # makes 'cs' cd and ll
