@@ -19,7 +19,14 @@ export CEVGIT="/Users/Momo/gitlab"
 export PERSONALGIT="/Users/Momo/github"
 
 # colors
-export TERM=xterm-256color
+if [ -e /usr/share/terminfo/x/xterm-256color ]; then
+            export TERM='xterm-256color'
+        else
+                    export TERM='xterm-color'
+fi
+setenv TERM xterm-256color
+
+#export TERM=xterm-256color
 
 # gnu core utils (prepend)
 if [ $OSTYPE == 'darwin19.5.0' ]; then
