@@ -1,9 +1,19 @@
-
+"\"
 " Maintainer: JG
 " Date: June 4 
 " License: GPL-2 or newer
 " --------------------------------------------------
 " dotfiles/vim/vimrc
+
+"set background=dark
+set t_Co=256
+colorscheme jellybeans
+
+"if has('gui_running')
+"     set background=light
+" else
+"     set background=dark
+" endif
 
 set nocompatible
 let g:vim_bootstrap_editor = 'nvim'	
@@ -88,5 +98,5 @@ filetype plugin indent on
 source $HOME/github/dotfiles/vim-common/remaps.vim
 source $HOME/github/dotfiles/vim-common/set.vim   " for the lightline config
 
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
