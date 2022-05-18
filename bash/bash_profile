@@ -54,6 +54,7 @@ fi
 
 # HRDAG resource utils
 export PATH+=":/Users/Momo/github/hrdag/resource-utils/bin/"
+export PATH+=":$HOME/resource-utils/bin/"
 
 # fzf plugin
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -70,6 +71,8 @@ alias .5="cd ../../../../../"
 alias dl="cd ~/Downloads"
 alias gitl="cd ~/gitlab"
 alias gith="cd ~/github"
+alias jep="cd /mnt/c/Users/juan.duenas/OneDrive\ -\ JEP\ Colombia/Documentos/jep"
+alias jepdl="cd /mnt/c/Users/juan.duenas/Downloads" 
 alias reload="source ~/.bashrc"
 # git
 alias gs="git status"
