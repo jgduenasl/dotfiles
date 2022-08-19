@@ -43,4 +43,4 @@
 [push]
     default = upstream
 [pull]
-    rebase = merges
+    rebase = true
