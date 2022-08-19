@@ -43,6 +43,4 @@
 [push]
     default = upstream
 [pull]
-    rebase = true
-[credential]
-	helper = cache
+    rebase = merges
