@@ -7,9 +7,11 @@
 
 
 #------------------ env vars ----------------------------
+export LC_ALL='en_US.UTF-8'
 export CLICOLORS=1
 PS1="\[\e[32m\]\w\n@$USER: \[\e[0;00m\]"
 export PS1
+export TMPDIR=/home/tmp
 
 # make vim the default editor
 export EDITOR='nvim'
@@ -17,7 +19,14 @@ export CEVGIT="/Users/Momo/gitlab"
 export PERSONALGIT="/Users/Momo/github"
 
 # colors
-export TERM=xterm-256color
+if [ -e /usr/share/terminfo/x/xterm-256color ]; then
+            export TERM='xterm-256color'
+        else
+                    export TERM='xterm-color'
+fi
+setenv TERM xterm-256color
+
+#export TERM=xterm-256color
 
 # gnu core utils (prepend)
 if [ $OSTYPE == 'darwin19.5.0' ]; then
@@ -45,6 +54,7 @@ fi
 
 # HRDAG resource utils
 export PATH+=":/Users/Momo/github/hrdag/resource-utils/bin/"
+export PATH+=":$HOME/resource-utils/bin/"
 
 # fzf plugin
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -52,6 +62,7 @@ export PATH+=":/Users/Momo/github/hrdag/resource-utils/bin/"
 
 #------------------ aliases -------------------------
 # navigation
+# https://github.com/chrishwiggins/mise/blob/master/sh/aliases-public.sh
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -60,7 +71,9 @@ alias .5="cd ../../../../../"
 alias dl="cd ~/Downloads"
 alias gitl="cd ~/gitlab"
 alias gith="cd ~/github"
-alias reload="source ~/.bash_profile"
+alias jep="cd /mnt/c/Users/juan.duenas/OneDrive\ -\ JEP\ Colombia/Documentos/jep"
+alias jepdl="cd /mnt/c/Users/juan.duenas/Downloads" 
+alias reload="source ~/.bashrc"
 # git
 alias gs="git status"
 alias gc="git commit -m"
@@ -68,8 +81,10 @@ alias gc="git commit -m"
 alias gA="git add -A && git status"
 alias gl="git log --graph --oneline --pretty=format:'%C(yellow)%h|%Cred%ci|%Cblue%cN| %Creset%s %Cgreen%d %Creset' | head -n20"
 alias gpom="git push origin master"
+alias gpgp="git pull; git push"
 
 # listing 
+alias l='ls --color -lhF --group-directories-first'
 alias lh="ls -lh --color=always"
 # List all files colorized in long format
 #alias ll="ls -ltrF ${colorflag}"
@@ -90,6 +105,22 @@ alias texmaker="open -a texmaker"
 
 #inspecting R tools
 alias inspect-excel="Rscript ~/github/inspection-tools/inspect-excel.R"
+
+# application
+#alias rstudio open /Applications/RStudio.app
+
+# spelling while typing is hard
+# alias opne open
+# alias alais alias
+# alias aalias alias
+# alias mdkdir mkdir
+# alias mkddir mkdir
+# alias kdir mkdir
+# alias oepn open
+# alias fidn find
+# alias gttp http
+# alias moer more
+# alias mroe more
 
 #-------------- external functions--------------------
 # makes 'cs' cd and ll
