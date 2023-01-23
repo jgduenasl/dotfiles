@@ -88,6 +88,7 @@ Plug 'godlygeek/tabular'
 
 Plug 'jalvesaq/Nvim-R', {'branch':'stable'} "Vim's support to edit R code
 Plug 'jalvesaq/vimcmdline'            "Send code to command line interpreter
+Plug 'JuliaEditorSupport/julia-vim'
 
 "List ends here. Plugins become visible to Vim after this call.
 call plug#end()
