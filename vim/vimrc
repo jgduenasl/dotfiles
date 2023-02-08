@@ -96,8 +96,12 @@ call plug#end()
 " must follow all Plug calls
 filetype plugin indent on
 
-source $HOME/github/dotfiles/vim-common/remaps.vim
-source $HOME/github/dotfiles/vim-common/set.vim   " for the lightline config
+source $HOME/dotfiles/vim-common/remaps.vim
+source $HOME/dotfiles/vim-common/set.vim   " for the lightline config
+
+# for MACOS
+#source $HOME/github/dotfiles/vim-common/remaps.vim
+#source $HOME/github/dotfiles/vim-common/set.vim   " for the lightline config
 
 "let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
