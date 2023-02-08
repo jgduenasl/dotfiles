@@ -9,7 +9,7 @@
 #------------------ env vars ----------------------------
 export LC_ALL='en_US.UTF-8'
 export CLICOLORS=1
-PS1="\[\e[32m\]\w\n@$USER: \[\e[0;00m\]"
+PS1="\[\e[32m\]\w\n\h@$USER: \[\e[0;00m\]"
 export PS1
 #source /opt/anaconda3/etc/profile.d/conda.sh
 
