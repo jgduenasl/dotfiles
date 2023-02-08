@@ -91,3 +91,4 @@ colorscheme OceanicNext
 
 source $HOME/dotfiles/vim-common/remaps.vim
 source $HOME/dotfiles/vim-common/set.vim   " for the lightline config
+"done
