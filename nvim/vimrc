@@ -6,7 +6,6 @@
 
 "set nocompatible
 let g:vim_bootstrap_editor = 'nvim'
-let g:vimtex_compiler_progname = 'nvr'
 
 set clipboard+=unnamedplus
 set runtimepath+=$HOME/dotfiles/vim-common
