@@ -10,7 +10,7 @@
 "basic options{{{
 "set cursorline 
 syntax enable                                                " sets up syntax highlighting
-"syntax on
+syntax on
 set background=dark
 set clipboard=unnamed                                        " yank and paste with the system clipboard
 set laststatus=2                                             " always show statusline
