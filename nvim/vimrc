@@ -22,7 +22,7 @@ if has('mac')
     colorscheme gruvbox
 elseif has('unix')
     let g:python3_host_prog = '/opt/anaconda3/bin/python3'
-    colorscheme OceanicNext
+    colorscheme gruvbox
 endif
 
 "=========================================================
