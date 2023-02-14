@@ -64,6 +64,8 @@ Plug 'luochen1990/rainbow'             "showing different levels of parentheses 
 Plug 'mhartington/oceanic-next'       "theme inspired by Oceanic Next for Sublime
 Plug 'junegunn/seoul256.vim'          "low-contrast Vim color scheme based on Seoul Colors
 Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
+Plug 'chriskempson/base16-vim'
 
 " languages
 Plug 'sheerun/vim-polyglot'
