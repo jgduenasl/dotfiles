@@ -5,7 +5,9 @@
 " dotfiles/nvim/vimrc
 
 "set nocompatible
-let g:vim_bootstrap_editor = 'nvim'	
+let g:vim_bootstrap_editor = 'nvim'
+let g:vimtex_compiler_progname = 'nvr'
+
 set runtimepath+=$HOME/dotfiles/vim-common
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -15,8 +17,8 @@ endif
 
 
 if has('mac')
-    let g:python3_host_prog = '/opt/micromamba/bin/python3'
-    colorscheme solarized
+    let g:python3_host_prog = '/usr/local/bin/python3'
+    colorscheme default
 elseif has('unix')
     let g:python3_host_prog = '/opt/anaconda3/bin/python3'
     colorscheme OceanicNext
