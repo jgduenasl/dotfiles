@@ -95,7 +95,11 @@ call plug#end()
 " must follow all Plug calls
 filetype plugin indent on
 
-
-source $HOME/dotfiles/vim-common/remaps.vim
-source $HOME/dotfiles/vim-common/set.vim   " for the lightline config
+if has('mac')
+    source $HOME/github/dotfiles/vim-common/remaps.vim
+    source $HOME/github/dotfiles/vim-common/set.vim   " for the lightline config
+elseif has('unix')
+    source $HOME/dotfiles/vim-common/remaps.vim
+    source $HOME/dotfiles/vim-common/set.vim   " for the lightline config
+endif
 "done
