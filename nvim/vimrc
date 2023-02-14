@@ -2,7 +2,7 @@
 " Date: June 4 
 " License: GPL-2 or newer
 " --------------------------------------------------
-" dotfiles/nvim/init.vim
+" dotfiles/nvim/vimrc
 
 set nocompatible
 let g:vim_bootstrap_editor = 'nvim'	
