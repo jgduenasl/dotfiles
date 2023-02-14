@@ -4,7 +4,7 @@
 " --------------------------------------------------
 " dotfiles/nvim/vimrc
 
-"set nocompatible
+set nocompatible
 let g:vim_bootstrap_editor = 'nvim'
 let g:tex_flavor = 'latex' 
 
