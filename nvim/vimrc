@@ -19,7 +19,7 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 if has('mac')
     let g:python3_host_prog = '/usr/local/bin/python3'
-    colorscheme default
+    colorscheme gruvbox
 elseif has('unix')
     let g:python3_host_prog = '/opt/anaconda3/bin/python3'
     colorscheme OceanicNext
