@@ -5,20 +5,23 @@
 " --------------------------------------------------
 " dotfiles/vim/vimrc
 
-"set background=dark
-set t_Co=256
-colorscheme jellybeans
-
-"if has('gui_running')
-"     set background=light
-" else
-"     set background=dark
-" endif
-
 set nocompatible
 let g:vim_bootstrap_editor = 'nvim'	
 set runtimepath+=$HOME/dotfiles/vim-common
 let g:python3_host_prog = '/opt/micromamba/bin/python3'
+
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+if (has("termguicolors"))
+ set termguicolors
+endif
+
+if has('mac')
+    let g:python3_host_prog = '/opt/micromamba/bin/python3'
+    colorscheme solarized
+elseif has('unix')
+    let g:python3_host_prog = '/opt/anaconda3/bin/python3'
+    colorscheme OceanicNext
+endif
 
 "=========================================================
 "=========================================================
@@ -61,6 +64,7 @@ Plug 'luochen1990/rainbow'             "showing different levels of parentheses 
 "Plug 'itchyny/vim-cursorword'          " this works w * operator
 Plug 'mhartington/oceanic-next'
 Plug 'junegunn/seoul256.vim'          "low-contrast Vim color scheme based on Seoul Colors
+Plug 'altercation/vim-colors-solarized'
 
 " languages
 Plug 'sheerun/vim-polyglot'
@@ -96,12 +100,13 @@ call plug#end()
 " must follow all Plug calls
 filetype plugin indent on
 
-source $HOME/dotfiles/vim-common/remaps.vim
-source $HOME/dotfiles/vim-common/set.vim   " for the lightline config
+if has('mac')
+    source $HOME/github/dotfiles/vim-common/remaps.vim
+    source $HOME/github/dotfiles/vim-common/set.vim   " for the lightline config
+elseif has('unix')
+    source $HOME/dotfiles/vim-common/remaps.vim
+    source $HOME/dotfiles/vim-common/set.vim   " for the lightline config
+endif
+"done
 
-# for MACOS
-#source $HOME/github/dotfiles/vim-common/remaps.vim
-#source $HOME/github/dotfiles/vim-common/set.vim   " for the lightline config
-
-"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
