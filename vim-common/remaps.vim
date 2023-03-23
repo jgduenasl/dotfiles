@@ -63,3 +63,10 @@ nnoremap <leader>ntc :NERDTreeFocus<CR>
 nnoremap <leader>nt :NERDTree<CR>
 nnoremap <leader>ntt :NERDTreeToggle<CR>
 nnoremap <leader>ntf :NERDTreeFind<CR>
+
+" Use ctrl-[jkl;] to select the active split
+nnoremap fk :wincmd k<cr>
+nnoremap fj :wincmd j<cr>
+nnoremap fh :wincmd h<cr>
+nnoremap fl :wincmd l<cr>
+
