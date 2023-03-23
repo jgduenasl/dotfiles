@@ -16,8 +16,6 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "  set termguicolors
 " endif
 
-
-
 "=========================================================
 "=========================================================
 " Plugins will be downloaded under the specified directory.
@@ -29,6 +27,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "editing and formatting
 Plug 'tpope/vim-sensible'
 Plug 'tomtom/tcomment_vim'
+Plug 'scrooloose/nerdcommenter'        " Comment functions so powerful
 Plug 'ntpeters/vim-better-whitespace' " to remove trailing whitespace on save
 Plug 'tpope/vim-surround'             " adds surround action to create cmts
 "Plug 'tpope/vim-unimpaired'           " many additional movements with [ and ]
@@ -49,6 +48,7 @@ Plug 'ap/vim-buftabline'         " adds buffer tabs and numbers
 Plug 'dhruvasagar/vim-vinegar'   " - for curdir and adds some netrw behaviors
 
 " colors and UI
+"for more scheme colors see https://github.com/rafi/awesome-vim-colorschemes
 Plug 'airblade/vim-gitgutter'          " put chars in gutter
 Plug 'kshenoy/vim-signature'           " less cluttered, marks more visible
 Plug 'luochen1990/rainbow'             "showing different levels of parentheses in different colors
@@ -74,6 +74,7 @@ Plug 'vim-pandoc/vim-rmarkdown'
 Plug 'dense-analysis/ale'             "providing linting (syntax checking and semantic errors)
 Plug 'vim-airline/vim-airline'        "Lean & mean status/tabline for vim that's light as air
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'         "add icons to plugins
 Plug 'ncm2/ncm2'                      "slim, fast and hackable completion framework
 " Plug 'ncm2/ncm2-bufword'
 " Plug 'ncm2/ncm2-path'
