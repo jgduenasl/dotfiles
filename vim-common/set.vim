@@ -44,6 +44,18 @@ if &ft == 'make'
 endif
 "}}}
 
+" Python specific settings
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set fileformat=unix |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent
+
+au BufRead, BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/ " Highlight trailing whitespace
+
 "layout{{{
 set relativenumber number                                    " sets line numbers
 highlight LineNr ctermfg=grey
