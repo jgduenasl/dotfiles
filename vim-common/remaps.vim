@@ -33,11 +33,11 @@ nnoremap J mzJ`z
 nnoremap <C-J> a<CR><Esc>k$
 
 "" direct editing
-nnoremap <leader>evim :e ~/github/dotfiles/nvim/vimrc<cr>
-nnoremap <leader>eset :e ~/github/dotfiles/vim-common/set.vim<cr>
-nnoremap <leader>emaps :e ~/github/dotfiles/vim-common/remaps.vim<cr>
-nnoremap <leader>ebash :e ~/github/dotfiles/bash/bash_profile<cr>
-nnoremap <leader>etut :e ~/github/tutorials/Readme.md<cr>
+nnoremap <leader>evim :e ~/dotfiles/nvim/vimrc<cr>
+nnoremap <leader>eset :e ~/dotfiles/vim-common/set.vim<cr>
+nnoremap <leader>emaps :e ~/dotfiles/vim-common/remaps.vim<cr>
+nnoremap <leader>ebash :e ~/dotfiles/bash/bash_profile<cr>
+nnoremap <leader>etut :e ~/tutorials/Readme.md<cr>
 
 "save on escape
 "inoremap <Esc> <Esc>:w<CR>
