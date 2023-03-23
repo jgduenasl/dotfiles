@@ -35,6 +35,8 @@ Plug 'tpope/vim-surround'             " adds surround action to create cmts
 "Plug 'haya14busa/incsearch.vim'
 
 " completion
+" powerful autocompletion engine
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'lifepillar/vim-mucomplete'
 
 " navigation
