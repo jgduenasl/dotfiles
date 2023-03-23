@@ -46,13 +46,15 @@ Plug 'honza/vim-snippets'
 "" files, buffers, and tags
 Plug 'ap/vim-buftabline'         " adds buffer tabs and numbers
 Plug 'dhruvasagar/vim-vinegar'   " - for curdir and adds some netrw behaviors
+Plug 'preservim/tagbar'          "easy way to browse the tags of the current file
+Plug 'preservim/nerdtree'        "file system explorer 
 
 " colors and UI
 "for more scheme colors see https://github.com/rafi/awesome-vim-colorschemes
 Plug 'airblade/vim-gitgutter'          " put chars in gutter
 Plug 'kshenoy/vim-signature'           " less cluttered, marks more visible
 Plug 'luochen1990/rainbow'             "showing different levels of parentheses in different colors
-"Plug 'itchyny/lightline.vim'           " workable. Prob could be done by hand.
+"Plug 'itchyny/lightline.vim'           " workable. Prob cculd be done by hand.
 "Plug 'itchyny/vim-cursorword'          " this works w * operator
 Plug 'mhartington/oceanic-next'       "theme inspired by Oceanic Next for Sublime
 Plug 'junegunn/seoul256.vim'          "low-contrast Vim color scheme based on Seoul Colors
@@ -101,6 +103,9 @@ elseif has('unix')
     let g:python3_host_prog = '/opt/anaconda3/bin/python3'
     colorscheme gruvbox
 endif
+
+" Customize NERDCommenter
+let g:NERDSpaceDelims = 1 " Add spaces after comment delimiters by default
 
 source $HOME/dotfiles/vim-common/remaps.vim
 source $HOME/dotfiles/vim-common/set.vim   " for the lightline config
