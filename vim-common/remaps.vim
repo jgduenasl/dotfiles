@@ -3,7 +3,7 @@
 " Date: June 4 
 " License: GPL-2 or newer
 " --------------------------------------------------
-" dotfiles/vim/vimrc
+" dotfiles/vim-common/remaps.vim
 " 
 "==================================================================
 "=================================================================
@@ -33,8 +33,7 @@ nnoremap J mzJ`z
 nnoremap <C-J> a<CR><Esc>k$
 
 "" direct editing
-nnoremap <leader>evim :e ~/github/dotfiles/vim/vimrc<cr>
-nnoremap <leader>einit :e ~/github/dotfiles/nvim/init.vim<cr>
+nnoremap <leader>evim :e ~/github/dotfiles/nvim/vimrc<cr>
 nnoremap <leader>eset :e ~/github/dotfiles/vim-common/set.vim<cr>
 nnoremap <leader>emaps :e ~/github/dotfiles/vim-common/remaps.vim<cr>
 nnoremap <leader>ebash :e ~/github/dotfiles/bash/bash_profile<cr>
@@ -55,3 +54,12 @@ nnoremap <leader>8 :b8<CR>
 nnoremap <leader>9 :b9<CR>
 nnoremap <leader>0 :b10<CR>
 
+" set t key will toggle the Tagbar window
+"nnoremap <leader>tb :TagbarToggle<CR>
+nnoremap <leader>T :TagbarToggle<CR>
+
+" set maps for nerdtree file system explorer
+nnoremap <leader>ntc :NERDTreeFocus<CR>
+nnoremap <leader>nt :NERDTree<CR>
+nnoremap <leader>ntt :NERDTreeToggle<CR>
+nnoremap <leader>ntf :NERDTreeFind<CR>
