@@ -7,6 +7,7 @@
 set nocompatible
 let g:vim_bootstrap_editor = 'nvim'
 let g:tex_flavor = 'latex' 
+let g:chatgpt_venv_path = '/usr/local/lib/python3.9/site-packages/openai'
 
 set clipboard+=unnamedplus
 set runtimepath+=$HOME/dotfiles/vim-common
