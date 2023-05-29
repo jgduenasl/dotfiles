@@ -30,7 +30,7 @@ nnoremap D Da
 " Keep the cursor in place while joining lines
 nnoremap J mzJ`z
 "split a line in two, inverse of J
-nnoremap <C-J> a<CR><Esc>k$
+nnoremap <leader>J a<CR><Esc>k$
 
 "" direct editing
 nnoremap <leader>evim :e ~/dotfiles/nvim/vimrc<cr>
@@ -65,9 +65,7 @@ nnoremap <leader>ntt :NERDTreeToggle<CR>
 nnoremap <leader>ntf :NERDTreeFind<CR>
 
 " Use ctrl-[jkl;] to select the active split
-nnoremap fk :wincmd k<cr>
-nnoremap fj :wincmd j<cr>
-nnoremap fh :wincmd h<cr>
-nnoremap fl :wincmd l<cr>
-" TODO: inconsistencies with split line,
-" doesn't work navigation between splits
+nnoremap <C-k> :wincmd k<cr>
+nnoremap <C-j> :wincmd j<cr>
+nnoremap <C-h> :wincmd h<cr>
+nnoremap <C-l> :wincmd l<cr>
