@@ -69,4 +69,5 @@ nnoremap fk :wincmd k<cr>
 nnoremap fj :wincmd j<cr>
 nnoremap fh :wincmd h<cr>
 nnoremap fl :wincmd l<cr>
-
+" TODO: inconsistencies with split line,
+" doesn't work navigation between splits
