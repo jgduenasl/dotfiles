@@ -1,4 +1,5 @@
 # Bind Prefix to C-Space
+# # TODO: set \  as a prefix or shift \
 unbind C-Space
 set -g prefix C-Space
 bind C-Space send-prefix
@@ -46,3 +47,7 @@ bind -r C-h resize-pane -L 15
 bind -r C-l resize-pane -R 15
 
 bind -n C-z run-shell "ps -o state= -o comm= -t '#{pane_tty}'"
+
+# launch vertical window to tareas, config tmux
+bind C-t split-window -h "nvim ~/tareas.md"
+bind C-k split-window -h "nvim ~/dotfiles/tmux/main/keymaps.tmux"
