@@ -1,6 +1,6 @@
 "
 " Maintainer: JG
-" Date: June 4 
+" Date: June 4
 " License: GPL-2 or newer
 " --------------------------------------------------
 " dotfiles/vim-common/set.vim
@@ -8,7 +8,7 @@
 "=========================================================
 "=========================================================
 "basic options{{{
-"set cursorline 
+"set cursorline
 "syntax on
 syntax enable                                                " sets up syntax highlighting
 set background=dark
@@ -29,7 +29,7 @@ set textwidth=80
 "tabs
 set tabstop=4                                                " sets tabs to 4 spaces
 set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
-set expandtab 
+set expandtab
 set shiftwidth=4 smarttab                                    " normal mode indentation commands use 2 spaces
 set smartindent
 
@@ -79,3 +79,59 @@ au BufNewFile,BufRead *.py
     \ set autoindent
 
 au BufRead, BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/ " Highlight trailing whitespace
+
+
+""""""""""""""""""""""
+"""Nvim-R-tmux config"""
+""""""""""""""""""""""
+" Fixes weird character problem in some devel versions neovim under tmux sesssion. This might go away in future.
+set guicursor=
+
+" Uses color scheme southernlights from Jakson Alves de Aquino here: https://github.com/jalvesaq/southernlights
+" To enable it, save file southernlights.vim to ~/.config/nvim/colors/
+"colorscheme southernlights
+
+" Preferred default settings
+set nowrap
+
+" start R with F2 key
+" map <F2> <Plug>RStart
+" imap <F2> <Plug>RStart
+" vmap <F2> <Plug>RStart
+" R version can be specified like this:
+" let vimrplugin_r_path = "/opt/R/3.1.2-release/bin/R"
+" Send selection or line to R with space bar, respectively.
+vmap <Space> <Plug>RDSendSelection
+nmap <Space> <Plug>RDSendLine
+
+" Shortcut for R's assignment operator: 0 turns it off; 1 assigns underscore; 2 assigns two underscores
+let R_assign = 2
+
+" Ensures usage of your own ~/.tmux.conf file
+let R_notmuxconf = 1
+
+" Shows function rguments in a separate viewport during omni completion with Ctrl-spacebar (or Ctrl-x Ctrl-o:w)
+" let R_show_args = 1
+
+" Use Ctrl-Space to do omnicompletion
+inoremap <C-Space> <C-x><C-o>
+
+" Remove white background of status line at bottom of nvim viewport (default is 2)
+set laststatus=1
+
+"let R_in_buffer = 0
+"let R_tmux_split = 1
+"let R_applescript = 0
+"let R_tmux_close = 0
+
+" The following provides a zoom functionality, similar to Tmux's Ctrl-a z, by pressing 'gz' in normal mode.
+function ZoomWindow()
+        let cpos = getpos(".")
+        tabnew %
+        redraw
+        call cursor(cpos[1], cpos[2])
+        normal! zz
+    endfunction
+    nmap gz :call ZoomWindow()<CR>
+
+
