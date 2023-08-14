@@ -58,11 +58,40 @@ nnoremap <leader>0 :b10<CR>
 "nnoremap <leader>tb :TagbarToggle<CR>
 nnoremap <leader>T :TagbarToggle<CR>
 
+"""""""""""""""""""""
+"""NERDTree Plugin"""
+"""""""""""""""""""""
+" Installation
+"       - Download NERDTree plugin from here
+"         http://www.vim.org/scripts/script.php?script_id=1658
+"       - unzip nerdtree.zip -d ~/.vim
+"
+" Usage
+"   - '?' opens quick help
+"   - '\z' opens and 'q' closes NERDTree ('\z 'requires setting below)
+"       - 't' opens file in new tab
+"       - 'T' opens file in new tab silently
+"   - 'gt' and 'gT' switch between tabs
+"       - 'm' opens menu mode for creating/deleting files, 'Ctrl-c' to exit out of this mode
+"
+
+" Instruct NERDTree to always opens in the current folder
+"set autochdir
+"let NERDTreeChDirMode=2
+nnoremap <leader>n :NERDTree .<CR>
+
+" Optional to show special NERDTree browser characters properly (e.g. on remote linux system)
+let g:NERDTreeDirArrows=0
+
+" Show bookmarks by default
+let NERDTreeShowBookmarks=1
 " set maps for nerdtree file system explorer
-nnoremap <leader>ntc :NERDTreeFocus<CR>
-nnoremap <leader>nt :NERDTree<CR>
-nnoremap <leader>ntt :NERDTreeToggle<CR>
-nnoremap <leader>ntf :NERDTreeFind<CR>
+
+" Settings
+" Opens NERDTree with custom shortcut, here '\z'
+nmap <leader>z :NERDTreeToggle<cr>
+nnoremap <leader>zc :NERDTreeFocus<CR>
+nnoremap <leader>zf :NERDTreeFind<CR>
 
 " Use ctrl-[jkl;] to select the active split
 nnoremap <C-k> :wincmd k<cr>
