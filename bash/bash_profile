@@ -19,7 +19,7 @@ export PS1
 export EDITOR='nvim'
 export CEVGIT="/Users/Momo/gitlab"
 export PERSONALGIT="/Users/Momo/github"
-export CHAT_GPT_KEY="$(cat ~/.chatgptkey)"
+#export CHAT_GPT_KEY="$(cat ~/.chatgptkey)"
 
 # colors
 if [ -e /usr/share/terminfo/x/xterm-256color ]; then
@@ -64,7 +64,6 @@ fi
 
 # fzf plugin
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 
 #------------------ aliases -------------------------
 # navigation
