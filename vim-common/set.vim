@@ -68,7 +68,9 @@ if &ft == 'make'
     setlocal tabstop=4
 endif
 
-" Python specific settings
+""""""""""""""""""""""""""""
+""" Python specific settings
+""""""""""""""""""""""""""""
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set fileformat=unix |
@@ -81,9 +83,10 @@ au BufNewFile,BufRead *.py
 au BufRead, BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/ " Highlight trailing whitespace
 
 
-""""""""""""""""""""""
+""""""""""""""""""""""""
 """Nvim-R-tmux config"""
-""""""""""""""""""""""
+""""""""""""""""""""""""
+
 " Fixes weird character problem in some devel versions neovim under tmux sesssion. This might go away in future.
 set guicursor=
 
@@ -103,6 +106,13 @@ set nowrap
 " Send selection or line to R with space bar, respectively.
 vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
+
+" object location
+let R_objbr_place = 'script,right'
+let R_objbr_auto_start = 1
+let R_objbr_w = 30
+let R_objbr_h = 30
+let R_rconsole_height = 10
 
 " Shortcut for R's assignment operator: 0 turns it off; 1 assigns underscore; 2 assigns two underscores
 let R_assign = 2
@@ -130,7 +140,7 @@ function ZoomWindow()
         tabnew %
         redraw
         call cursor(cpos[1], cpos[2])
-        normal! zz
+        normal! \z
     endfunction
     nmap gz :call ZoomWindow()<CR>
 
