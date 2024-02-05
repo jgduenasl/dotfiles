@@ -43,7 +43,7 @@ if [ $OSTYPE == 'darwin19.5.0' ]; then
         # POWERLINE_BASH_CONTINUATION=1
         # POWERLINE_BASH_SELECT=1
         # . /Users/Momo/Library/Python/3.7/lib/python/site-packages/powerline/bindings/bash/powerline.sh
-        
+
         # HRDAG resource utils
         export PATH+=":/Users/Momo/github/hrdag/resource-utils/bin/"
     else
@@ -77,10 +77,11 @@ alias dl="cd ~/Downloads"
 alias gitl="cd ~/gitlab"
 alias gith="cd ~/github"
 alias jep="cd /mnt/c/Users/juan.duenas/OneDrive\ -\ JEP\ Colombia/Documentos/jep"
-alias jepdl="cd /mnt/c/Users/juan.duenas/Downloads" 
+alias jepdl="cd /mnt/c/Users/juan.duenas/Downloads"
 alias reload="source ~/.bashrc"
 # git
 alias gs="git status"
+alias gsm="git status | grep modified"
 alias gc="git commit -m"
 # makes gA add
 alias gA="git add -A && git status"
@@ -88,7 +89,7 @@ alias gl="git log --graph --oneline --pretty=format:'%C(yellow)%h|%Cred%ci|%Cblu
 alias gpom="git push origin master"
 alias gpgp="git pull; git push"
 
-# listing 
+# listing
 alias l='ls --color -lhF --group-directories-first'
 alias lh="ls -lh --color=always"
 # List all files colorized in long format
