@@ -46,14 +46,16 @@ if [ $OSTYPE == 'darwin19.5.0' ]; then
 
         # HRDAG resource utils
         export PATH+=":/Users/Momo/github/hrdag/resource-utils/bin/"
+
+        # export anaconda (append)
+        export PATH+=":/Users/Momo/anaconda3/bin/"
     else
         export PATH+=":~/home/resource-utils/bin/"
+        export PATH+=":~/home/anaconda/bin/"
 fi
 
 export PATH+=":$HOME/resource-utils/bin/"
 
-# export anaconda (append)
-export PATH+=":/Users/Momo/anaconda3/bin/"
 export PATH+=":/usr/local/opt/tcl-tk/bin/"
 export GNUTERM='aqua'
 
