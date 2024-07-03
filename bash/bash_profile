@@ -51,7 +51,7 @@ if [ $OSTYPE == 'darwin19.5.0' ]; then
         export PATH+=":/Users/Momo/anaconda3/bin/"
     else
         export PATH+=":~/home/resource-utils/bin/"
-        export PATH+=":~/home/anaconda/bin/"
+        export PATH+=":~/home/jgduenasl/anaconda/bin/"
 fi
 
 export PATH+=":$HOME/resource-utils/bin/"
