@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # default variables (can be overridden by command-line arguments)
-REMOTE_USER="default_user"  # Replace with your default remote user
+REMOTE_USER="jgduenasl"  # Replace with your default remote user
 REMOTE_HOST="default_host"  # Replace with your default remote host
-REMOTE_DIR="/default/remote/dir"  # Replace with your default remote directory
-HASH_ALGO="sha256sum"  # Default hash algorithm, can be set to sha1sum
+REMOTE_DIR="/home/jgduenasl"  # Replace with your default remote directory
+HASH_ALGO="sha1sum"  # Default hash algorithm, can be set to sha256sum
 
 # Function to display usage
 usage() {
