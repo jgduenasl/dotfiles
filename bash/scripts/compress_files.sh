@@ -2,7 +2,7 @@
 
 # Default variables
 COMPRESSION="tar.gz"   # Default compression method
-DEFAULT_HASH_ALGO="sh1sum" # Default hash algorithm, can be set to sha256sum
+DEFAULT_HASH_ALGO="sha1sum" # Default hash algorithm, can be set to sha256sum
 HASH_FILE="hashes.txt"
 LOG_FILE="missing_files.txt"
 TEMP_COMPRESSED_FILES="temp_compressed_files.txt"
