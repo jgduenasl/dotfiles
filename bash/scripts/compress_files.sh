@@ -36,7 +36,7 @@ done
 shift $((OPTIND - 1))   # reindexing to discard options after processing
 
 # Check for required positional arguments
-if [ $# -lt 2 ]: then
+if [ $# -lt 2 ]; then
     usage
 fi
 
