@@ -98,10 +98,10 @@ verify_compression_integrity(){
             tar -tJf "$ARCHIVE_NAME.tar.xz" > "$TEMP_COMPRESSED_FILES"
             ;;
         zstd)
-            tar --use-compress-program=unzstd -tz "$ARCHIVE_NAME.tar.zst" > "$TEMP_COMPRESSED_FILES"
+            tar --use-compress-program=unzstd -tf "$ARCHIVE_NAME.tar.zst" > "$TEMP_COMPRESSED_FILES"
             ;;
         7z)
-            7z l "$ARCHIVE_NAME.7z" | wak '/^-/{print $NF}' > "$TEMP_COMPRESSED_FILES"
+            7z l "$ARCHIVE_NAME.7z" | awk '/^-/{print $NF}' > "$TEMP_COMPRESSED_FILES"
             ;;
         *)
             echo "Error: Unsupported compression format."
