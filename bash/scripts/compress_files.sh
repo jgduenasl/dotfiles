@@ -6,7 +6,7 @@ HASH_ALGO="sha1sum" # Default hash algorithm, can be set to sha256sum
 HASH_FILE="hashes.txt"
 LOG_FILE="missing_files.txt"
 TEMP_COMPRESSED_FILES="temp_compressed_files.txt"
-TEMP_SCR_FILES="temp_src_files.txt"
+TEMP_SRC_FILES="temp_src_files.txt"
 
 # Function to display usage
 usage(){
