@@ -50,7 +50,7 @@ transfer_file() {
 verify_remote_integrity() {
     echo "Verifying file integrity on remote server..."
     LOCAL_HASH=$($HASH_ALGO "$COMPRESSED_FILE" | awk '{print $1}')
-    REMOTE_HASH=$(ssh "$REMOTE_USER"@"$REMOTE_HOST" "$HASH_ALGO \"$REMOTE_DIR/$(basename "$COMPRESSED_FILE)\"" | awk '{print $1}')
+    REMOTE_HASH=$(ssh "$REMOTE_USER"@"$REMOTE_HOST" "$HASH_ALGO \"$REMOTE_DIR/$(basename "$COMPRESSED_FILE")\" | awk '{print $1}')
 
     if [ "$LOCAL_HASH" != "$REMOTE_HASH" ]; then
         echo "Error: File integrity checkk failed. Hash mismatch."
