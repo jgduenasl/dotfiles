@@ -2,11 +2,17 @@
 
 # Default variables
 COMPRESSION="tar.gz"   # Default compression method
+DEFAULT_HASH_ALGO="sh1sum" # Default hash algorithm, can be set to sha256sum
+HASH_FILE="hashes.txt"
+LOG_FILE="missing_files.txt"
+TEMP_COMPRESSED_FILES="temp_compressed_files.txt"
+TEMP_SCR_FILES="temp_src_files.txt"
 
 # Function to display usage
 usage(){
     echo "Usage: $0 [-c compression] source_dir archive_name"
     echo " -c compression Compression method: tar.gz, tar.bz2, tar.xz, zstd, 7z (default: $COMPRESSION)"
+    echo " -a hash_algo  Hash algorithm (sha1sum or sha256sum, default: $DEFAULT_HASH_ALGO)"
     echo
     echo "Supported Compression Methods:"
     echo "  -  tar.gz   : Medium compression, fast, widely supported"
@@ -20,9 +26,10 @@ usage(){
 
 
 # Parse command-line options
-while getopts "c:" opt; do
+while getopts "c:a:" opt; do
     case $opt in
         c) COMPRESSION="$OPTARG" ;;
+        a) HASH_ALGO="$OPTARG" ;;
         *) usage ;;
     esac
 done
@@ -35,6 +42,15 @@ fi
 
 SRC_DIR="$1"
 ARCHIVE_NAME="$2"
+
+# Function to generate file hashes
+generate_hashes() {
+  rm -f "$HASH_FILE" "$LOG_FILE"
+  echo "Generating file hashes using $HASH_ALGO..."
+  find "$SRC_DIR" -type f | while read -r file; do
+      $HASH_ALGO "$file" >> "$HASH_FILE"
+  done
+}
 
 # Function to compress files
 compress_files(){
@@ -68,6 +84,43 @@ compress_files(){
     echo "Compression completed succesfully. Created: $ARCHIVE_NAME.${COMPRESSION#*.}"
 }
 
-# Execute compression
+# Function to verify if all files were included
+verify_compression_integrity(){
+    echo "Verifying compression integrity..."
+    case "$COMPRESSION" in
+        tar.gz)
+            tar -tzf "$ARCHIVE_NAME.tar.gz" > "$TEMP_COMPRESSED_FILES"
+            ;;
+        tar.bz2)
+            tar -tjf "$ARCHIVE_NAME.tar.bz2" > "$TEMP_COMPRESSED_FILES"
+            ;;
+        tar.xz)
+            tar -tJf "$ARCHIVE_NAME.tar.xz" > "$TEMP_COMPRESSED_FILES"
+            ;;
+        zstd)
+            tar --use-compress-program=unzstd -tz "$ARCHIVE_NAME.tar.zst" > "$TEMP_COMPRESSED_FILES"
+            ;;
+        7z)
+            7z l "$ARCHIVE_NAME.7z" | wak '/^-/{print $NF}' > "$TEMP_COMPRESSED_FILES"
+            ;;
+        *)
+            echo "Error: Unsupported compression format."
+            exit 1
+            ;;
+    esac
+
+    find "$SRC_DIR" -type f > "$TEMP_SRC_FILES"
+    comm -23 <(sort "$TEMP_SRC_FILES") <(sort "$TEMP_COMPRESSED_FILES") > "$LOG_FILE"
+    if [ -s "$LOG_FILE" ]; then
+        echo "Warning: Some files were not included in the zip file.  Check $LOG_FILE for details."
+    else
+        echo "All files are included in the zip file."
+    fi
+}
+
+# Main scipt execution
+echo "Starting compression task..."
+generate_hashes
 compress_files
+verify_compression_integrity
 # done
