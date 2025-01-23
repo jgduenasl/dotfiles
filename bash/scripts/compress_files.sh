@@ -65,7 +65,7 @@ compress_files(){
             tar -cJf "$ARCHIVE_NAME.tar.xz" "$SRC_DIR"
             ;;
         zstd)
-            tar --use-compress-program=zstd -cz "$ARCHIVE_NAME.tar.zst" "$SRC_DIR"
+            tar --use-compress-program=zstd -cf "$ARCHIVE_NAME.tar.zst" "$SRC_DIR"
             ;;
         7z)
             7z a "$ARCHIVE_NAME.7z" "$SRC_DIR"
@@ -77,7 +77,7 @@ compress_files(){
     esac
 
     if [ $? -ne 0 ]; then
-        echo "Error: Failed to compress fiels."
+        echo "Error: Failed to compress files."
         exit 1
     fi
 
