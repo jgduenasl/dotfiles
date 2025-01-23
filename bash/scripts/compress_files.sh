@@ -2,7 +2,7 @@
 
 # Default variables
 COMPRESSION="tar.gz"   # Default compression method
-DEFAULT_HASH_ALGO="sha1sum" # Default hash algorithm, can be set to sha256sum
+HASH_ALGO="sha1sum" # Default hash algorithm, can be set to sha256sum
 HASH_FILE="hashes.txt"
 LOG_FILE="missing_files.txt"
 TEMP_COMPRESSED_FILES="temp_compressed_files.txt"
@@ -10,9 +10,9 @@ TEMP_SCR_FILES="temp_src_files.txt"
 
 # Function to display usage
 usage(){
-    echo "Usage: $0 [-c compression] source_dir archive_name"
+    echo "Usage: $0 [-c compression][-a hash_algo] source_dir archive_name"
     echo " -c compression Compression method: tar.gz, tar.bz2, tar.xz, zstd, 7z (default: $COMPRESSION)"
-    echo " -a hash_algo  Hash algorithm (sha1sum or sha256sum, default: $DEFAULT_HASH_ALGO)"
+    echo " -a hash_algo  Hash algorithm (sha1sum or sha256sum, default: $HASH_ALGO)"
     echo
     echo "Supported Compression Methods:"
     echo "  -  tar.gz   : Medium compression, fast, widely supported"
