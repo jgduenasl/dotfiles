@@ -76,6 +76,8 @@ compress_files(){
             ;;
     esac
 
+    # TODO: fix possible errors from the compressor even if the compressed file
+    # is exported, may be change the validation
     if [ $? -ne 0 ]; then
         echo "Error: Failed to compress files."
         exit 1
@@ -112,9 +114,9 @@ verify_compression_integrity(){
     find "$SRC_DIR" -type f > "$TEMP_SRC_FILES"
     comm -23 <(sort "$TEMP_SRC_FILES") <(sort "$TEMP_COMPRESSED_FILES") > "$LOG_FILE"
     if [ -s "$LOG_FILE" ]; then
-        echo "Warning: Some files were not included in the zip file.  Check $LOG_FILE for details."
+        echo "Warning: Some files were not included in the compressed file.  Check $LOG_FILE for details."
     else
-        echo "All files are included in the zip file."
+        echo "All files are included in the compressed file."
     fi
 }
 
