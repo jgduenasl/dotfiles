@@ -69,6 +69,11 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 #------------------ aliases -------------------------
+if  [[ -a $(which vim) ]]
+then
+    alias vim="nvim"
+if
+
 # navigation
 # https://github.com/chrishwiggins/mise/blob/master/sh/aliases-public.sh
 alias ..="cd .."
@@ -103,6 +108,8 @@ alias la="ls -laF --color=always"
 alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 #alias ll="ls -alhG --color=always"
 alias ll="ls -lFG --color=always"
+
+alias disks="df -h -x squashfs -x tmpfs"
 
 # fasd and fzf command
 alias j='xdir=$(fasd -dl|fzf --tac) && cd "$xdir"'
@@ -146,6 +153,9 @@ function task(){
     tree -C
 }
 
+function trls(){
+    tree -C "$@" | less -R
+}
 #-----------------------
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
