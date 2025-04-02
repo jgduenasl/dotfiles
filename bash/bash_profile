@@ -21,6 +21,8 @@ export CEVGIT="/Users/Momo/gitlab"
 export PERSONALGIT="/Users/Momo/github"
 export PATH="$HOME/dotfiles/bash/scripts:$PATH"
 #export CHAT_GPT_KEY="$(cat ~/.chatgptkey)"
+export HUGGINGFACE_TOKEN=$(cat ~/token_hf_asr)
+
 
 # colors
 if [ -e /usr/share/terminfo/x/xterm-256color ]; then
