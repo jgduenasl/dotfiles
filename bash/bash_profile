@@ -158,6 +158,16 @@ function task(){
 function trls(){
     tree -C "$@" | less -R
 }
+
+function count_files(){
+    local dir="${1:-.}"
+    find "$dir" -type f | wc -l
+}
+
+function sha1_recursive(){
+    local dir="{1:-.}"
+    find "$dir" -type f -exec sha1sum {} + | sort
+}
 #-----------------------
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
