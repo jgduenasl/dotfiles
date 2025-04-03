@@ -44,3 +44,6 @@
     default = upstream
 [pull]
 	rebase = true
+[safe]
+	directory = /datos-ta/infrastructure/repos/jep_app_airflow/
+	directory = /datos-ta/infrastructure/repos/jep_app_airflow
