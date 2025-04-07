@@ -110,6 +110,7 @@ alias inspect-excel="Rscript ~/github/inspection-tools/inspect-excel.R"
 
 alias jep="cd /mnt/c/Users/juan.duenas/OneDrive\ -\ JEP\ Colombia/Documentos/jep"
 alias jepdl="cd /mnt/c/Users/juan.duenas/Downloads"
+alias mountgrai="sudo mount -t drvfs '\\servidordearchivos.jep.gov.co\GRAI' /mnt/share"
 
 #-------------- external functions--------------------
 # makes 'cs' cd and ll
